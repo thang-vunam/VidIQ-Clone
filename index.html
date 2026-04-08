@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VidIQ Clone - Công cụ phân tích và tối ưu hóa YouTube cho creators">
+    <title>VidIQ Clone - YouTube Analytics & SEO Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#grad1)" />
+                        <path d="M2 17L12 22L22 17" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 12L12 17L22 12" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="grad1" x1="2" y1="2" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0000" />
+                                <stop offset="1" stop-color="#FF6B6B" />
+                            </linearGradient>
+                            <linearGradient id="grad2" x1="2" y1="12" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0000" />
+                                <stop offset="1" stop-color="#FF6B6B" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">VidIQ <span class="logo-accent">Clone</span></span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Phân tích</span>
+                    <a href="#" class="nav-item active" data-page="dashboard">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="keyword-research">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                        </svg>
+                        <span>Keyword Research</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="trending">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                        <span>Trending Videos</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="analytics">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 20V10" />
+                            <path d="M12 20V4" />
+                            <path d="M6 20v-6" />
+                        </svg>
+                        <span>Channel Analytics</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="competitor">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <span>Competitor Analysis</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="comments">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <span>Comment Analysis</span>
+                        <span class="nav-badge">New</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Công cụ</span>
+                    <a href="#" class="nav-item" data-page="seo-score">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <span>SEO Score</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="ai-generator">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93" />
+                            <path d="M8.5 9.5L12 6l3.5 3.5" />
+                            <path d="M12 22a4 4 0 0 1-4-4c0-1.95 1.4-3.58 3.25-3.93" />
+                            <path d="M15.5 14.5L12 18l-3.5-3.5" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        <span>AI Generator</span>
+                        <span class="nav-badge" id="aiGeneratorBadge">AI ✨</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="calendar">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        <span>Content Calendar</span>
+                        <span class="nav-badge">Offline</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="storyboard">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="3" y1="15" x2="21" y2="15" />
+                            <line x1="9" y1="3" x2="9" y2="21" />
+                        </svg>
+                        <span>Storyboard</span>
+                        <span class="nav-badge">New</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="prompt-library">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                        <span>Prompt Library</span>
+                        <span class="nav-badge">New</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item" data-page="settings">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                    </svg>
+                    <span>Settings</span>
+                </a>
+
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="vi">VN</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                    </button>
+                    <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="api-status" id="apiStatus">
+                        <span class="status-dot"></span>
+                        <span class="status-text">API chưa kết nối</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Pages -->
+            <div class="content-wrapper">
+                <!-- Dashboard Page -->
+                <div class="page active" id="page-dashboard">
+                    <div class="welcome-section">
+                        <div class="welcome-card glass-card">
+                            <div class="welcome-content">
+                                <h2>Chào mừng đến với VidIQ Clone! 🎬</h2>
+                                <p>Công cụ phân tích và tối ưu hóa YouTube toàn diện cho creators Việt Nam và quốc tế.
+                                </p>
+                                <div class="quick-actions">
+                                    <button class="btn btn-primary" onclick="app.navigateTo('keyword-research')">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                        </svg>
+                                        Tìm Keyword
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="app.navigateTo('trending')">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                        </svg>
+                                        Trending Videos
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="app.navigateTo('ai-generator')">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="3" />
+                                            <path d="M12 2a4 4 0 0 1 4 4" />
+                                        </svg>
+                                        AI Generator
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="welcome-illustration">
+                                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="100" cy="100" r="80" fill="url(#welcomeGrad)" opacity="0.1" />
+                                    <rect x="60" y="70" width="80" height="60" rx="8" fill="#1a1a2e"
+                                        stroke="url(#welcomeGrad)" stroke-width="2" />
+                                    <polygon points="90,85 90,115 115,100" fill="url(#welcomeGrad)" />
+                                    <circle cx="150" cy="50" r="15" fill="#FF6B6B" opacity="0.3" />
+                                    <circle cx="50" cy="150" r="10" fill="#4ECDC4" opacity="0.3" />
+                                    <defs>
+                                        <linearGradient id="welcomeGrad" x1="0" y1="0" x2="200" y2="200">
+                                            <stop stop-color="#FF0000" />
+                                            <stop offset="1" stop-color="#FF6B6B" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #FF6B6B, #FF0000);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.35-4.35" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Keyword Research</span>
+                                <span class="stat-value">Tìm từ khóa tiềm năng</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #4ECDC4, #2ECC71);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Trending</span>
+                                <span class="stat-value">Video đang hot</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #A855F7, #6366F1);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 20V10" />
+                                    <path d="M12 20V4" />
+                                    <path d="M6 20v-6" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Analytics</span>
+                                <span class="stat-value">Phân tích kênh</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">AI Generator</span>
+                                <span class="stat-value">Tạo nội dung AI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features-section">
+                        <h3 class="section-title">🚀 Hướng dẫn bắt đầu</h3>
+                        <div class="steps-grid">
+                            <div class="step-card glass-card">
+                                <div class="step-number">1</div>
+                                <h4>Kết nối YouTube API</h4>
+                                <p>Vào Settings để nhập YouTube API Key của bạn</p>
+                            </div>
+                            <div class="step-card glass-card">
+                                <div class="step-number">2</div>
+                                <h4>Tìm Keyword</h4>
+                                <p>Khám phá từ khóa tiềm năng cho video</p>
+                            </div>
+                            <div class="step-card glass-card">
+                                <div class="step-number">3</div>
+                                <h4>Phân tích đối thủ</h4>
+                                <p>Học hỏi chiến lược từ các kênh thành công</p>
+                            </div>
+                            <div class="step-card glass-card">
+                                <div class="step-number">4</div>
+                                <h4>Tối ưu SEO</h4>
+                                <p>Cải thiện hiệu suất video với SEO Score</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keyword Research Page -->
+                <div class="page" id="page-keyword-research">
+                    <!-- Tabs -->
+                    <div class="kr-tabs">
+                        <button class="kr-tab active" data-kr-tab="search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="width:18px;height:18px;">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                            Tìm từ khóa
+                        </button>
+                        <button class="kr-tab" data-kr-tab="topic">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="width:18px;height:18px;">
+                                <circle cx="12" cy="5" r="3" />
+                                <line x1="12" y1="8" x2="12" y2="14" />
+                                <circle cx="6" cy="19" r="3" />
+                                <circle cx="18" cy="19" r="3" />
+                                <line x1="12" y1="14" x2="6" y2="16" />
+                                <line x1="12" y1="14" x2="18" y2="16" />
+                            </svg>
+                            Khám phá chủ đề
+                        </button>
+                        <button class="kr-tab" data-kr-tab="gap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="width:18px;height:18px;">
+                                <path d="M18 20V10" />
+                                <path d="M12 20V4" />
+                                <path d="M6 20v-6" />
+                            </svg>
+                            Phân tích khoảng trống
+                        </button>
+                    </div>
+
+                    <!-- Tab 1: Keyword Search (existing) -->
+                    <div class="kr-panel active" id="kr-search">
+                        <div class="search-section">
+                            <div class="search-box glass-card">
+                                <input type="text" id="keywordInput" class="search-input"
+                                    placeholder="Nhập từ khóa để nghiên cứu...">
+                                <button class="btn btn-primary search-btn" id="searchKeywordBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <path d="M21 21l-4.35-4.35" />
+                                    </svg>
+                                    Tìm kiếm
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="keywordResults" class="results-section">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.35-4.35" />
+                                </svg>
+                                <h3>Nhập từ khóa để bắt đầu</h3>
+                                <p>Khám phá các từ khóa tiềm năng cho video YouTube của bạn</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Topic Explorer -->
+                    <div class="kr-panel" id="kr-topic">
+                        <div class="search-section">
+                            <div class="search-box glass-card">
+                                <input type="text" id="topicInput" class="search-input"
+                                    placeholder="Nhập chủ đề lớn (VD: nấu ăn, kiếm tiền online, du lịch...)">
+                                <button class="btn btn-primary search-btn" id="exploreTopicBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="5" r="3" />
+                                        <line x1="12" y1="8" x2="12" y2="14" />
+                                        <circle cx="6" cy="19" r="3" />
+                                        <circle cx="18" cy="19" r="3" />
+                                        <line x1="12" y1="14" x2="6" y2="16" />
+                                        <line x1="12" y1="14" x2="18" y2="16" />
+                                    </svg>
+                                    Khám phá
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="topicResults" class="results-section">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="5" r="3" />
+                                    <line x1="12" y1="8" x2="12" y2="14" />
+                                    <circle cx="6" cy="19" r="3" />
+                                    <circle cx="18" cy="19" r="3" />
+                                    <line x1="12" y1="14" x2="6" y2="16" />
+                                    <line x1="12" y1="14" x2="18" y2="16" />
+                                </svg>
+                                <h3>Khám phá sub-topics</h3>
+                                <p>Nhập chủ đề lớn để tìm các ý tưởng phụ, câu hỏi phổ biến và cơ hội nội dung</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Gap Analysis -->
+                    <div class="kr-panel" id="kr-gap">
+                        <div class="search-section">
+                            <div class="search-box glass-card" style="flex-direction: column; gap: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem; width: 100%;">
+                                    <input type="text" id="gapChannel1" class="search-input"
+                                        placeholder="Channel ID đối thủ 1 (bắt buộc)" style="flex: 1;">
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem; width: 100%;">
+                                    <input type="text" id="gapChannel2" class="search-input"
+                                        placeholder="Channel ID đối thủ 2 (tùy chọn)" style="flex: 1;">
+                                    <input type="text" id="gapChannel3" class="search-input"
+                                        placeholder="Channel ID đối thủ 3 (tùy chọn)" style="flex: 1;">
+                                </div>
+                                <button class="btn btn-primary" id="analyzeGapBtn" style="align-self: flex-start;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 20V10" />
+                                        <path d="M12 20V4" />
+                                        <path d="M6 20v-6" />
+                                    </svg>
+                                    Phân tích khoảng trống
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="gapResults" class="results-section">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M18 20V10" />
+                                    <path d="M12 20V4" />
+                                    <path d="M6 20v-6" />
+                                </svg>
+                                <h3>Phân tích khoảng trống từ khóa</h3>
+                                <p>Nhập Channel ID đối thủ để tìm cơ hội từ khóa mà họ đang khai thác hiệu quả</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Page -->
+                <div class="page" id="page-trending">
+                    <div class="filter-section glass-card" style="flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; width: 100%;">
+                            <div class="filter-group">
+                                <label>Quốc gia:</label>
+                                <select id="trendingCountry" class="select-input">
+                                    <option value="VN">🇻🇳 Việt Nam</option>
+                                    <option value="US">🇺🇸 United States</option>
+                                    <option value="KR">🇰🇷 South Korea</option>
+                                    <option value="JP">🇯🇵 Japan</option>
+                                    <option value="GB">🇬🇧 United Kingdom</option>
+                                    <option value="IN">🇮🇳 India</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Thể loại:</label>
+                                <select id="trendingCategory" class="select-input">
+                                    <option value="0">Tất cả</option>
+                                    <option value="1">Film & Animation</option>
+                                    <option value="10">Music</option>
+                                    <option value="20">Gaming</option>
+                                    <option value="22">People & Blogs</option>
+                                    <option value="23">Comedy</option>
+                                    <option value="24">Entertainment</option>
+                                    <option value="25">News & Politics</option>
+                                    <option value="27">Education</option>
+                                    <option value="28">Science & Technology</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="loadTrendingBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg>
+                                Tải Trending
+                            </button>
+                        </div>
+
+                        <div
+                            style="display: flex; align-items: center; gap: 0.5rem; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.875rem; white-space: nowrap;">🔍
+                                Hoặc tìm theo chủ đề:</span>
+                            <input type="text" id="trendingTopic" class="search-input"
+                                placeholder="VD: kiếm tiền online, làm đẹp, nấu ăn..." style="flex: 1;">
+                            <button class="btn btn-secondary" id="searchTopicBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.35-4.35" />
+                                </svg>
+                                Tìm
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="trendingResults" class="video-grid">
+                        <div class="empty-state">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                            <h3>Nhấn "Tải Trending" hoặc tìm theo chủ đề</h3>
+                            <p>Khám phá các video đang hot trên YouTube</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel Analytics Page -->
+                <div class="page" id="page-analytics">
+                    <div class="search-section">
+                        <div class="search-box glass-card">
+                            <input type="text" id="channelInput" class="search-input"
+                                placeholder="Nhập Channel ID hoặc URL kênh YouTube...">
+                            <button class="btn btn-primary search-btn" id="analyzeChannelBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 20V10" />
+                                    <path d="M12 20V4" />
+                                    <path d="M6 20v-6" />
+                                </svg>
+                                Phân tích
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="analyticsResults" class="results-section">
+                        <div class="empty-state">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M18 20V10" />
+                                <path d="M12 20V4" />
+                                <path d="M6 20v-6" />
+                            </svg>
+                            <h3>Nhập Channel ID để phân tích</h3>
+                            <p>Xem thống kê chi tiết về một kênh YouTube</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment Analysis Page -->
+                <div class="page" id="page-comments">
+                    <div class="search-section">
+                        <div class="search-box glass-card" style="flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; gap: 0.5rem; width: 100%; align-items: center;">
+                                <input type="text" id="commentVideoInput" class="search-input"
+                                    placeholder="Nhập Video URL hoặc ID (VD: https://youtube.com/watch?v=... hoặc dQw4w9WgXcQ)">
+                                <button class="btn btn-primary search-btn" id="analyzeCommentsBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                    </svg>
+                                    Phân tích
+                                </button>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                                <div class="filter-group">
+                                    <label>Sắp xếp:</label>
+                                    <select id="commentSortOrder" class="select-input">
+                                        <option value="relevance">Nổi bật nhất</option>
+                                        <option value="time">Mới nhất</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Số lượng:</label>
+                                    <select id="commentMaxResults" class="select-input">
+                                        <option value="50">50 comments</option>
+                                        <option value="100" selected>100 comments</option>
+                                        <option value="200">200 comments</option>
+                                        <option value="500">500 comments</option>
+                                        <option value="1000">1000 comments</option>
+                                        <option value="2000">2000 comments</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="commentResults" class="results-section">
+                        <div class="empty-state">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                            <h3>Phân tích Comments Video</h3>
+                            <p>Nhập URL video để đọc và phân tích comments — khám phá sentiment, nhu cầu, nỗi đau và
+                                insights từ viewers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competitor Analysis Page -->
+                <div class="page" id="page-competitor">
+                    <div class="search-section">
+                        <div class="search-box glass-card competitor-search">
+                            <div class="competitor-inputs">
+                                <input type="text" id="myChannelInput" class="search-input"
+                                    placeholder="Channel ID của bạn">
+                                <span class="vs-badge">VS</span>
+                                <input type="text" id="competitorInput" class="search-input"
+                                    placeholder="Channel ID đối thủ">
+                            </div>
+                            <button class="btn btn-primary" id="compareBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                                So sánh
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="competitorResults" class="results-section">
+                        <div class="empty-state">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                            </svg>
+                            <h3>So sánh với đối thủ</h3>
+                            <p>Nhập Channel ID để so sánh hiệu suất giữa các kênh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO Score Page -->
+                <div class="page" id="page-seo-score">
+                    <!-- Tabs -->
+                    <div class="seo-tabs">
+                        <button class="seo-tab active" data-seo-tab="url">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="width:18px;height:18px;">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg>
+                            Phân tích từ URL
+                        </button>
+                        <button class="seo-tab" data-seo-tab="manual">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="width:18px;height:18px;">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                            </svg>
+                            Nhập thủ công
+                        </button>
+                    </div>
+
+                    <!-- Tab 1: Analyze from URL -->
+                    <div class="seo-panel active" id="seo-url">
+                        <div class="search-section">
+                            <div class="search-box glass-card">
+                                <input type="text" id="seoVideoUrl" class="search-input"
+                                    placeholder="Dán URL video hoặc Video ID (VD: https://youtube.com/watch?v=... hoặc dQw4w9WgXcQ)">
+                                <button class="btn btn-primary search-btn" id="auditVideoBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Phân tích SEO
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="seoAuditResults" class="results-section">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                                <h3>Phân tích Meta SEO toàn diện</h3>
+                                <p>Dán URL hoặc ID của bất kỳ video YouTube nào để kiểm tra SEO — phân tích title,
+                                    description, tags, thumbnail, engagement và hiệu suất video</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Manual Input (existing) -->
+                    <div class="seo-panel" id="seo-manual">
+                        <div class="seo-input-section glass-card">
+                            <h3>📊 Kiểm tra SEO Video</h3>
+                            <div class="seo-form">
+                                <div class="form-group">
+                                    <label>Tiêu đề video:</label>
+                                    <input type="text" id="seoTitle" class="input-field"
+                                        placeholder="Nhập tiêu đề video...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả:</label>
+                                    <textarea id="seoDescription" class="textarea-field" rows="4"
+                                        placeholder="Nhập mô tả video..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tags (phân cách bằng dấu phẩy):</label>
+                                    <input type="text" id="seoTags" class="input-field"
+                                        placeholder="tag1, tag2, tag3...">
+                                </div>
+                                <button class="btn btn-primary" id="checkSeoBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Kiểm tra SEO
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="seoResults" class="results-section">
+                            <!-- SEO results will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Generator Page -->
+                <div class="page" id="page-ai-generator">
+                    <!-- Generate from existing video -->
+                    <div class="glass-card" style="padding: 1.25rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.25rem;">🔗</span>
+                            <div>
+                                <h4 style="margin: 0; font-size: 0.95rem;">Tạo nội dung từ Video có sẵn</h4>
+                                <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">Dán link video
+                                    YouTube → AI phân tích chủ đề → tạo kịch bản mới cùng chủ đề</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="videoUrlInput" class="search-input"
+                                placeholder="Dán link video YouTube (VD: https://youtube.com/watch?v=...)">
+                            <button class="btn btn-primary" id="analyzeVideoBtn" style="white-space: nowrap;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    style="width: 18px; height: 18px;">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                Phân tích & Tạo
+                            </button>
+                        </div>
+                        <div id="videoAnalysisResult" style="margin-top: 1rem; display: none;"></div>
+                    </div>
+
+                    <div class="ai-tabs">
+                        <button class="ai-tab active" data-tab="title">📝 Title Generator</button>
+                        <button class="ai-tab" data-tab="description">📄 Description</button>
+                        <button class="ai-tab" data-tab="hashtags">🏷️ Hashtags</button>
+                        <button class="ai-tab" data-tab="hooks">🎯 Hooks</button>
+                        <button class="ai-tab" data-tab="script">📜 Full Script</button>
+                    </div>
+
+                    <div class="ai-content">
+                        <div class="ai-panel active" id="ai-title">
+                            <div class="search-box glass-card">
+                                <input type="text" id="titleTopic" class="search-input"
+                                    placeholder="Nhập chủ đề video...">
+                                <button class="btn btn-primary" id="generateTitlesBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    Tạo Tiêu đề
+                                </button>
+                            </div>
+                            <div id="titleResults" class="ai-results"></div>
+                        </div>
+
+                        <div class="ai-panel" id="ai-description">
+                            <div class="search-box glass-card">
+                                <input type="text" id="descTopic" class="search-input"
+                                    placeholder="Nhập chủ đề video...">
+                                <button class="btn btn-primary" id="generateDescBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    Tạo Mô tả
+                                </button>
+                            </div>
+                            <div id="descResults" class="ai-results"></div>
+                        </div>
+
+                        <div class="ai-panel" id="ai-hashtags">
+                            <div class="search-box glass-card">
+                                <input type="text" id="hashtagTopic" class="search-input"
+                                    placeholder="Nhập chủ đề video...">
+                                <button class="btn btn-primary" id="generateHashtagsBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    Tạo Hashtags
+                                </button>
+                            </div>
+                            <div id="hashtagResults" class="ai-results"></div>
+                        </div>
+
+                        <div class="ai-panel" id="ai-hooks">
+                            <div class="search-box glass-card">
+                                <input type="text" id="hookTopic" class="search-input"
+                                    placeholder="Nhập chủ đề video...">
+                                <button class="btn btn-primary" id="generateHooksBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    Tạo Hooks
+                                </button>
+                            </div>
+                            <div id="hookResults" class="ai-results"></div>
+                        </div>
+
+                        <div class="ai-panel" id="ai-script">
+                            <div class="search-box glass-card" style="flex-direction: column; gap: 1rem;">
+                                <div style="display: flex; gap: 0.5rem; width: 100%; align-items: center;">
+                                    <input type="text" id="scriptTopic" class="search-input"
+                                        placeholder="Nhập chủ đề video (VD: Đừng để sự tử tế trở thành điểm yếu)...">
+                                    <button class="btn btn-primary" id="generateScriptBtn">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                                            <polyline points="10 9 9 9 8 9"></polyline>
+                                        </svg>
+                                        Viết Kịch Bản
+                                    </button>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: center;">
+                                    <label
+                                        style="color: var(--text-secondary); font-size: 0.875rem; white-space: nowrap;">Phong
+                                        cách:</label>
+                                    <select id="scriptStyle" class="select-input" style="max-width: 280px;">
+                                        <option value="storytelling">🗣️ Kể chuyện (Storytelling)</option>
+                                        <option value="step-by-step">📝 Hướng dẫn từng bước (Step-by-step)</option>
+                                        <option value="myth-buster">🛑 Phá vỡ lầm tưởng (Myth Buster)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="scriptResults" class="ai-results"></div>
+                        </div>
+                    </div>
+
+                    <!-- Closing page-ai-generator -->
+                </div>
+
+                <!-- Content Calendar Page -->
+                <div class="page" id="page-calendar">
+                    <div class="calendar-header glass-card">
+                        <button class="btn btn-icon" id="prevMonthBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6" />
+                            </svg>
+                        </button>
+                        <h3 id="calendarTitle">Tháng 2, 2026</h3>
+                        <button class="btn btn-icon" id="nextMonthBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-primary" id="addVideoBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Thêm Video
+                        </button>
+                    </div>
+
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Calendar will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Storyboard Page -->
+                <div class="page" id="page-storyboard">
+                    <div class="glass-card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <h3 style="margin-bottom: 1rem;">📋 Nhập Kịch Bản</h3>
+                        <textarea id="storyboardScript" class="textarea-field" rows="8"
+                            placeholder="Dán kịch bản của bạn vào đây...&#10;&#10;Mỗi đoạn văn sẽ được chuyển thành 1 phân cảnh."></textarea>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="btn btn-primary" id="generateStoryboardBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    style="width: 18px; height: 18px;">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                                    <line x1="3" y1="9" x2="21" y2="9" />
+                                </svg>
+                                Tạo Storyboard
+                            </button>
+                            <button class="btn btn-secondary" id="addSceneBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    style="width: 18px; height: 18px;">
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                                Thêm Cảnh
+                            </button>
+                            <button class="btn btn-secondary" id="exportStoryboardBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    style="width: 18px; height: 18px;">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                                Export
+                            </button>
+                            <button class="btn" id="clearStoryboardBtn" style="background: var(--bg-tertiary);">
+                                🗑️ Xóa tất cả
+                            </button>
+                        </div>
+                    </div>
+                    <div id="storyboardResults" class="glass-card" style="padding: 1.5rem;">
+                        <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                            <p>Chưa có phân cảnh nào. Nhập kịch bản và bấm "Tạo Storyboard".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt Library Page -->
+                <div class="page" id="page-prompt-library">
+                    <div class="glass-card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <h3 style="margin: 0;">🎨 Thư viện Prompt</h3>
+                            <button class="btn btn-primary" id="addPromptBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    style="width: 18px; height: 18px;">
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                                Thêm Prompt
+                            </button>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <input type="text" id="promptSearchInput" class="input-field"
+                                placeholder="Tìm kiếm prompt..." style="max-width: 300px;">
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                            <button class="btn prompt-category-filter active" data-category="all"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Tất cả</button>
+                            <button class="btn prompt-category-filter" data-category="Anime"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Anime</button>
+                            <button class="btn prompt-category-filter" data-category="3D"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">3D</button>
+                            <button class="btn prompt-category-filter" data-category="Realistic"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Realistic</button>
+                            <button class="btn prompt-category-filter" data-category="Stick Figure"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Stick Figure</button>
+                            <button class="btn prompt-category-filter" data-category="Cinematic"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Cinematic</button>
+                        </div>
+                    </div>
+                    <div id="promptLibraryResults">
+                        <!-- Prompts will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div class="page" id="page-settings">
+                    <div class="settings-section glass-card">
+                        <h3>🔑 YouTube API Configuration</h3>
+                        <div class="form-group">
+                            <label>YouTube Data API Key:</label>
+                            <div class="api-input-wrapper">
+                                <input type="password" id="apiKeyInput" class="input-field"
+                                    placeholder="Nhập API Key của bạn...">
+                                <button class="btn btn-icon" id="toggleApiKey">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="helper-text">Lấy API Key tại: <a
+                                    href="https://console.cloud.google.com/apis/credentials" target="_blank">Google
+                                    Cloud Console</a></p>
+                        </div>
+                        <button class="btn btn-primary" id="saveApiKeyBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                                <polyline points="17 21 17 13 7 13 7 21" />
+                                <polyline points="7 3 7 8 15 8" />
+                            </svg>
+                            Lưu API Key
+                        </button>
+                    </div>
+
+                    <div class="settings-section glass-card">
+                        <h3>✨ Gemini AI Configuration</h3>
+                        <div class="form-group">
+                            <label>Gemini API Key:</label>
+                            <div class="api-input-wrapper">
+                                <input type="password" id="geminiApiKeyInput" class="input-field"
+                                    placeholder="Nhập Gemini API Key (AIzaSy...)">
+                                <button class="btn btn-icon" id="toggleGeminiKey">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="helper-text">Lấy miễn phí tại: <a href="https://aistudio.google.com/apikey"
+                                    target="_blank">Google AI Studio</a> — Dùng cho AI Generator viết kịch bản,
+                                title, description...</p>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; align-items: center;">
+                            <button class="btn btn-primary" id="saveGeminiKeyBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                                    <polyline points="17 21 17 13 7 13 7 21" />
+                                    <polyline points="7 3 7 8 15 8" />
+                                </svg>
+                                Lưu Gemini Key
+                            </button>
+                            <span id="geminiKeyStatus" style="font-size: 0.85rem; color: var(--text-secondary);"></span>
+                        </div>
+                    </div>
+
+                    <div class="settings-section glass-card">
+                        <h3>📋 Hướng dẫn lấy YouTube API Key</h3>
+                        <ol class="instruction-list">
+                            <li>Truy cập <a href="https://console.cloud.google.com/" target="_blank">Google Cloud
+                                    Console</a></li>
+                            <li>Tạo Project mới (hoặc chọn project có sẵn)</li>
+                            <li>Vào <strong>APIs & Services → Library</strong></li>
+                            <li>Tìm và enable <strong>"YouTube Data API v3"</strong></li>
+                            <li>Vào <strong>APIs & Services → Credentials</strong></li>
+                            <li>Click <strong>"Create Credentials" → "API Key"</strong></li>
+                            <li>Copy API Key và paste vào ô trên</li>
+                        </ol>
+                    </div>
+
+                    <div class="settings-section glass-card">
+                        <h3>⚙️ Cài đặt khác</h3>
+                        <div class="setting-item">
+                            <label>Ngôn ngữ mặc định:</label>
+                            <select id="defaultLang" class="select-input">
+                                <option value="vi">🇻🇳 Tiếng Việt</option>
+                                <option value="en">🇺🇸 English</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Quốc gia mặc định cho Trending:</label>
+                            <select id="defaultCountry" class="select-input">
+                                <option value="VN">🇻🇳 Việt Nam</option>
+                                <option value="US">🇺🇸 United States</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 id="modalTitle">Thêm Video mới</h3>
+                <button class="btn btn-icon modal-close" id="closeModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="modules/gemini-api.js?v=2"></script>
+    <script src="modules/i18n.js?v=2"></script>
+    <script src="modules/api.js?v=2"></script>
+    <script src="modules/keyword-research.js?v=2"></script>
+    <script src="modules/trending.js?v=2"></script>
+    <script src="modules/analytics.js?v=2"></script>
+    <script src="modules/competitor.js?v=2"></script>
+    <script src="modules/seo-score.js?v=2"></script>
+    <script src="modules/ai-generator.js?v=2"></script>
+    <script src="modules/calendar.js"></script>
+    <script src="modules/storyboard.js"></script>
+    <script src="modules/prompt-library.js"></script>
+    <script src="modules/comment-analysis.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
